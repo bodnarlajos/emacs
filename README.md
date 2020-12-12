@@ -12,5 +12,5 @@ C-l as hydra menu
 default module as (undo-tree, recentf, rg, ace-window, keys, layouts, default configs)
 
 #### Performance
-win10: <1sec
-linux: <0.74sec
+- win10: <1sec
+- linux: <0.74sec
