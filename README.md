@@ -2,7 +2,7 @@
 
 It's my emacs configuration where I tried to focus to the fast init.
 
-## Concepts
+## use those only you must need
 Start minimal set of package
 An entry point will indicate a loading for a module
 
