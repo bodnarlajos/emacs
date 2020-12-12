@@ -1,0 +1,10 @@
+Windows Registry Editor Version 5.00
+;; Be sure to set the correct path to Emacs on your system
+[HKEY_CURRENT_USER\Software\Classes\*\shell]
+
+;; Open file in existing frame
+[HKEY_CURRENT_USER\Software\Classes\*\shell\emacsopen]
+@="&Emacs open"
+"icon"="c:\\path_to\\emacs\\bin\\emacs.exe"
+[HKEY_CURRENT_USER\Software\Classes\*\shell\emacsopen\command]
+@="C:\\Program Files\\emacs-28\\bin\\runemacs.exe  -Q -l \"C:\\Users\\bodnarla\\.emacs.d\\init-fast.el\" \"%1\""
