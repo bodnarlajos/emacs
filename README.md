@@ -13,6 +13,7 @@ default module as (undo-tree, recentf, rg, ace-window, keys, layouts, default co
 
 #### Start
 You need to start emacs with this script or something similar one :)
+
 <code>
 #!/bin/sh
 
