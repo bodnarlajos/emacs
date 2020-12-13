@@ -5,21 +5,13 @@
 (straight-use-package 'dap-mode)
 (straight-use-package 'aggressive-indent)
 (straight-use-package 'highlight-indent-guides)
+(straight-use-package 'smartparens)
 (straight-use-package 'treemacs)
 (straight-use-package 'company)
 (straight-use-package 'rg)
-(straight-use-package 'dumb-jump)
 
 (my/load-my "ivy")
-
-(with-eval-after-load 'dumb-jump
-	(setq dumb-jump-selector 'ivy
-				dumb-jump-preferred-searcher 'rg)
-	(global-set-key (kbd "<f12>") 'dumb-jump-go)
-	(global-set-key (kbd "<C-f12>") 'dumb-jump-back)
-	(custom-set-variables
-	 '(dumb-jump-max-find-time 5))
-	(add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+(my/load-my "jump")
 
 (with-eval-after-load 'highlight-indent-guides
 	(custom-set-variables
@@ -139,6 +131,7 @@
   (local-set-key (kbd "C-b") 'smart-for-buffers)
 	(require 'company-capf)
 	(flycheck-mode)
+	(smartparens-mode)
 	(aggressive-indent-mode)
 	(company-mode))
 

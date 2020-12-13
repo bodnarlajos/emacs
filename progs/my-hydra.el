@@ -15,8 +15,8 @@
     (interactive)
     (when hydra-latest-body
       (let ((go-to-body hydra-latest-body))
-	(setq hydra-latest-body nil)
-	(call-interactively go-to-body))))	
+				(setq hydra-latest-body nil)
+				(call-interactively go-to-body))))	
   (defhydra my/edit-menu (:hint nil)
     "
     ^Edit^             		  ^Rectangle^      ^Highlight^
@@ -50,8 +50,8 @@
     _<tab>_: back to the previous
     "
     ("b" (progn
-	   (my/load-my "ivy")
-	   (counsel-bookmark)) :exit t)
+					 (my/load-my "ivy")
+					 (counsel-bookmark)) :exit t)
     ("f s" yafolding-show-element :exit t)
     ("f h" yafolding-hide-element :exit t)
     ("c" comment-or-uncomment-region :exit t)
@@ -59,17 +59,17 @@
     ("i" indent-buffer :exit t)
     ("u" undo-tree-visualize :exit t)
     ("r" (progn
-	   (my/load-my "recentf")
-	   (counsel-recentf)) :exit t)
-    ("p" (progn
-	   (my/load-my "projectile")
-	   (projectile-mode)
-	   (projectile-switch-project)) :exit t)
-    ("m" (progn
-	   (my/load-my "magit")
-	   (my/magit-status)) :exit t)
-    ("<tab>" my/hydra-back :exit t)
-    ("q" nil "quit" :exit t))
+					 (my/load-my "ivy")
+					 (counsel-recentf)) :exit t)
+		("p" (progn
+					 (my/load-my "projectile")
+					 (projectile-mode)
+					 (projectile-switch-project)) :exit t)
+		("m" (progn
+					 (my/load-my "magit")
+					 (my/magit-status)) :exit t)
+		("<tab>" my/hydra-back :exit t)
+		("q" nil "quit" :exit t))
   
   (defhydra my/move-menu (:hint nil)
     "
@@ -80,17 +80,17 @@
     _<tab>_: back to the previous
     "
     ("g" (progn
-	   (my/load-my "dumb-jump")
-	   (dumb-jump-go)) :exit t)
+					 (my/load-my "jump")
+					 (dumb-jump-go)) :exit t)
     ("b" (progn
-	   (my/load-my "dumb-jump")
-	   (dumb-jump-back)) :exit nil)
+					 (my/load-my "jump")
+					 (dumb-jump-back)) :exit nil)
     ("j" (progn
-	   (my/load-my "ivy")
-	   (counsel-mark-ring)) :exit t)
+					 (my/load-my "ivy")
+					 (counsel-mark-ring)) :exit t)
     ("f" (progn
-	   (my/load-my "ivy")
-	   (swiper)) :exit t)
+					 (my/load-my "ivy")
+					 (swiper)) :exit t)
 
     ("<tab>" my/hydra-back :exit t)
     ("q" nil "quit" :exit t))
@@ -109,8 +109,8 @@
     ("v" cua-set-mark :exit t)
     ("o" find-file :exit t)
     ("j" (progn
-	   (my/load-my "ivy")
-	   (counsel-mark-ring)) :exit t)
+					 (my/load-my "ivy")
+					 (counsel-mark-ring)) :exit t)
     ("u" undo-tree-undo :exit nil)
     ("r" undo-tree-redo :exit nil)
     ("l" recenter :exit t)
@@ -118,15 +118,15 @@
     ("bk" kill-buffer :exit t)
     ("br" revert-buffer :exit t)
     ("m" (progn
-	   (setq hydra-latest-body 'my/command-menu/body)
-	   (my/move-menu/body)) :exit t)
+					 (setq hydra-latest-body 'my/command-menu/body)
+					 (my/move-menu/body)) :exit t)
     ("e" (progn
-	   (setq hydra-latest-body 'my/command-menu/body)
-	   (my/edit-menu/body)) :exit t)
+					 (setq hydra-latest-body 'my/command-menu/body)
+					 (my/edit-menu/body)) :exit t)
     ("t" (progn
-	   (setq hydra-latest-body 'my/command-menu/body)
-	   (my/tools-menu/body)) :exit t)
+					 (setq hydra-latest-body 'my/command-menu/body)
+					 (my/tools-menu/body)) :exit t)
     ("q" nil "quit" :color blue :exit t)
     ("<f6>" nil "quit" :color blue :exit t)))
 
-(provide 'my-hydra)
+(my/installed "hydra")
