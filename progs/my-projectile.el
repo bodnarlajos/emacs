@@ -1,7 +1,8 @@
 (with-eval-after-load 'projectile
   (setq projectile-project-search-path my/project-dir)
+	(setq projectile-enable-caching t)
   (setq projectile-globally-ignored-directories '(".stack-work" ".git" "straight" "elpa" ".vs"))
-	(setq projectile-globally-ignored-files '(".el~"))
+	(setq projectile-globally-ignored-files '("*~" "*.elc" "#*#"))
   (setq projectile-completion-system 'ivy)
 
   (my/load-my "ivy")
