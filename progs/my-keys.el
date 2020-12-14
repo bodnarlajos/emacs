@@ -15,4 +15,4 @@
 (global-set-key (kbd "<C-tab>") 'ace-window)
 (global-set-key (kbd "C-c t") 'treemacs)
 
-(provide 'my-keys)
+(my/installed "keys")

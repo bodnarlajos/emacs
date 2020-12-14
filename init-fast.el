@@ -3,7 +3,7 @@
 (setq frame-title-format '("%b"))
 (setq file-name-handler-alist nil)
 
-(defvar my/pkg-loaded '())
+(defvar my/pkg-loaded '("base"))
 (defvar bootstrap-version nil)
 
 (defconst is-lbodnar (string-equal system-name "lbodnar"))
@@ -19,6 +19,11 @@
     (set-frame-font "Noto Sans Mono-12" t)
   (set-frame-font "Noto Sans Mono-9" t))
 (load-theme 'leuven)
+
+;; ################################################
+;; just for defuns and entry-points
+;;
+;; ################################################
 
 (defun my/packages ()
   "Load straight package manager"
@@ -67,6 +72,7 @@
 	(my/load-my "layout")
 	(message "default modules loaded"))
 
+;; entry point for magit, from commands
 (defun my/git ()
   "T."
   (interactive)
@@ -74,6 +80,7 @@
   (my/load-my "magit")
   (my/magit-status))
 
+;; entry point for long-line's, from commands
 (defun my/long-line ()
 	"Open long lines plugins"
 	(interactive)
@@ -83,6 +90,7 @@
 		(load my-load-file))
 	(longlines-mode))
 
+;; entry point
 (global-set-key (kbd "C-l") 'my/menu)
 (defun my/menu ()
   "T."
@@ -123,6 +131,7 @@
   (ivy-load)
   (counsel-M-x))
 
+;; entry point, automatic load the base packages
 ;; load packages if we have a little time ...
 (run-with-idle-timer 1 nil (lambda ()
 														 (my/packages)
@@ -130,6 +139,7 @@
 																	 (my/default-modules)
 																 (my/install-modules))))
 
+;; entry point, js file
 (defun init-js ()
 	"T."
 	(my/packages)
@@ -138,6 +148,7 @@
 	(js2-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . init-js))
 
+;; entry point, ts file
 (defun init-ts ()
 	"T."
 	(my/packages)
@@ -146,6 +157,7 @@
 	(typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . init-ts))
 
+;; entry point, cs file
 (defun init-cs ()
 	"T."
 	(my/packages)
@@ -154,6 +166,7 @@
 	(csharp-mode))
 (add-to-list 'auto-mode-alist '("\\.cs\\'" . init-cs))
 
+;; entry point, html file
 (defun init-html ()
 	"T."
 	(my/packages)
@@ -162,6 +175,7 @@
 	(web-mode))
 (add-to-list 'auto-mode-alist '("\\.(html\\|htm\\|cshtml\\|jsx)\\'" . init-html))
 
+;; entry point, less, css file
 (defun init-less ()
 	"T."
 	(my/packages)
@@ -170,6 +184,7 @@
 	(less-css-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(less\\|css\\)\\'" . init-less))
 
+;; entry point, haskell
 (defun init-hs ()
 	"T."
 	(my/packages)
@@ -178,6 +193,7 @@
 	(haskell-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(hs\\)\\'" . init-hs))
 
+;; entry point, shakespeare
 (defun init-shakespeare ()
 	"T."
 	(my/packages)
@@ -192,7 +208,7 @@
 (add-to-list 'auto-mode-alist '("\\.lucius\\'" . (lambda ()
 																									 (init-shakespeare)
 																									 (shakespeare-lucius-mode))))
-
+;; entry point, json file
 (defun init-json ()
 	"T."
 	(my/packages)
@@ -201,6 +217,7 @@
 	(json-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . init-json))
 
+;; entry point, markdown file
 (defun init-md ()
 	"T."
 	(my/packages)
@@ -209,6 +226,7 @@
 	(markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . init-md))
 
+;; entry point, emacslisp file
 (defun init-elisp ()
 	"T."
 	(my/packages)
