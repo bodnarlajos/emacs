@@ -72,11 +72,16 @@
 	(my/load-my "layout")
 	(message "default modules loaded"))
 
+(defun my/entrypoint ()
+	"Initialization for entry points"
+	(my/packages)
+	(my/default-modules))
+
 ;; entry point for magit, from commands
 (defun my/git ()
   "T."
   (interactive)
-  (my/packages)
+  (my/entrypoint)
   (my/load-my "magit")
   (my/magit-status))
 
@@ -95,7 +100,7 @@
 (defun my/menu ()
   "T."
   (interactive)
-  (my/packages)
+  (my/entrypoint)
   (my/load-my "hydra")
   (start-hydra))
 
@@ -110,7 +115,7 @@
 
 (defun ivy-load ()
   "Load ivy packages"
-  (my/packages)
+  (my/entrypoint)
   (my/load-my "ivy"))
 
 (defun my/buffers ()
@@ -142,7 +147,7 @@
 ;; entry point, js file
 (defun init-js ()
 	"T."
-	(my/packages)
+	(my/entrypoint)
 	(setq auto-mode-alist (delete '("\\.js\\'" . init-js) auto-mode-alist))
 	(my/load-my "js")
 	(js2-mode))
@@ -151,7 +156,7 @@
 ;; entry point, ts file
 (defun init-ts ()
 	"T."
-	(my/packages)
+	(my/entrypoint)
 	(setq auto-mode-alist (delete '("\\.ts\\'" . init-ts) auto-mode-alist))
 	(my/load-my "js")
 	(typescript-mode))
@@ -160,7 +165,7 @@
 ;; entry point, cs file
 (defun init-cs ()
 	"T."
-	(my/packages)
+	(my/entrypoint)
 	(setq auto-mode-alist (delete '("\\.cs\\'" . init-cs) auto-mode-alist))
 	(my/load-my "csharp")
 	(csharp-mode))
@@ -169,7 +174,7 @@
 ;; entry point, html file
 (defun init-html ()
 	"T."
-	(my/packages)
+	(my/entrypoint)
 	(setq auto-mode-alist (delete '("\\.(html\\|htm\\|cshtml\\|jsx)\\'" . init-html) auto-mode-alist))
 	(my/load-my "web")
 	(web-mode))
@@ -178,8 +183,8 @@
 ;; entry point, less, css file
 (defun init-less ()
 	"T."
-	(my/packages)
-		(setq auto-mode-alist (delete '("\\.\\(less\\|css\\)\\'" . init-less) auto-mode-alist))
+	(my/entrypoint)
+	(setq auto-mode-alist (delete '("\\.\\(less\\|css\\)\\'" . init-less) auto-mode-alist))
 	(my/load-my "web")
 	(less-css-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(less\\|css\\)\\'" . init-less))
@@ -187,7 +192,7 @@
 ;; entry point, haskell
 (defun init-hs ()
 	"T."
-	(my/packages)
+	(my/entrypoint)
 	(setq auto-mode-alist (delete '("\\.\\(hs\\)\\'" . init-hs) auto-mode-alist))
 	(my/load-my "haskell")
 	(haskell-mode))
@@ -196,7 +201,7 @@
 ;; entry point, shakespeare
 (defun init-shakespeare ()
 	"T."
-	(my/packages)
+	(my/entrypoint)
 	(my/load-my "haskell"))
 
 (add-to-list 'auto-mode-alist '("\\.hamlet\\'" . (lambda ()
@@ -211,7 +216,7 @@
 ;; entry point, json file
 (defun init-json ()
 	"T."
-	(my/packages)
+	(my/entrypoint)
 	(setq auto-mode-alist (delete '("\\.el\\'" . init-md) auto-mode-alist))
 	(straight-use-package 'json-mode)
 	(json-mode))
@@ -220,7 +225,7 @@
 ;; entry point, markdown file
 (defun init-md ()
 	"T."
-	(my/packages)
+	(my/entrypoint)
 	(straight-use-package 'markdown-mode)
 	(setq auto-mode-alist (delete '("\\.md\\'" . init-md) auto-mode-alist))
 	(markdown-mode))
@@ -229,7 +234,7 @@
 ;; entry point, emacslisp file
 (defun init-elisp ()
 	"T."
-	(my/packages)
+	(my/entrypoint)
 	(setq auto-mode-alist (delete '("\\.el\\'" . init-elisp) auto-mode-alist))
 	(my/load-my "dev")
 	(emacs-lisp-mode))
