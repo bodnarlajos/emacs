@@ -20,13 +20,6 @@
   (set-frame-font "Noto Sans Mono-9" t))
 (load-theme 'leuven)
 
-(defun my/git ()
-  "T."
-  (interactive)
-  (my/packages)
-  (my/load-my "magit")
-  (my/magit-status))
-
 (defun my/packages ()
   "Load straight package manager"
   (interactive)
@@ -42,11 +35,25 @@
 						 'silent 'inhibit-cookies)
 					(goto-char (point-max))
 					(eval-print-last-sexp)))
-			(load bootstrap-file nil 'nomessage))
-		(default-plugins)))
+			(load bootstrap-file nil 'nomessage))))
 
-(defun default-plugins ()
+(defun my/install-modules ()
+  "install the base modules"
+  (interactive)
+	(message "module install")
+  (straight-use-package 'undo-tree)
+  (straight-use-package 'rg)
+  (straight-use-package 'ivy)
+  (straight-use-package 'counsel)
+  (straight-use-package 'hydra)
+  (straight-use-package 'projectile)
+	(message "module install end"))
+
+(global-set-key (kbd "C-M-S-i") 'my/install-modules)
+
+(defun my/default-modules ()
   "Load default plugins"
+	(message "default modules loading")
   (let ((my-load-file
 				 (expand-file-name "progs/my-defun.el" user-emacs-directory)))
     (load my-load-file))
@@ -57,7 +64,15 @@
 	(straight-use-package 'ace-window)
   (my/load-my "keys")
   (my/load-my "setq-defaults")
-	(my/load-my "layout"))
+	(my/load-my "layout")
+	(message "default modules loaded"))
+
+(defun my/git ()
+  "T."
+  (interactive)
+  (my/packages)
+  (my/load-my "magit")
+  (my/magit-status))
 
 (defun my/long-line ()
 	"Open long lines plugins"
@@ -109,7 +124,11 @@
   (counsel-M-x))
 
 ;; load packages if we have a little time ...
-(run-with-idle-timer 1 nil 'my/packages)
+(run-with-idle-timer 1 nil (lambda ()
+														 (my/packages)
+														 (if (file-exists-p "~/.emacs.d/straight/build-cache.el")
+																	 (my/default-modules)
+																 (my/install-modules))))
 
 (defun init-js ()
 	"T."

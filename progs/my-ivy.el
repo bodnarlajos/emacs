@@ -35,4 +35,4 @@
 (global-set-key (kbd "C-M-d") 'counsel-fd-dired-jump)
 
 (my/installed "ivy")
-(provide 'my-ivy)
+
