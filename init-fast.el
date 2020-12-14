@@ -85,6 +85,11 @@
   (my/load-my "magit")
   (my/magit-status))
 
+
+;; ******************************************
+;; entry points
+;; ******************************************
+
 ;; entry point for long-line's, from commands
 (defun my/long-line ()
 	"Open long lines plugins"

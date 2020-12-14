@@ -12,6 +12,6 @@
 (straight-use-package 'projectile)
 (my/load-my "ivy")
 
-(add-hook 'prog-mode 'projectile-mode)
+(add-hook 'prog-mode-hook 'projectile-mode)
 
 (my/installed "projectile")
