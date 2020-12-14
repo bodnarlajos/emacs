@@ -60,6 +60,7 @@
     ("u" undo-tree-visualize :exit t)
     ("r" (progn
 					 (my/load-my "ivy")
+					 (my/load-my "projectile")
 					 (counsel-recentf)) :exit t)
 		("p" (progn
 					 (my/load-my "projectile")
