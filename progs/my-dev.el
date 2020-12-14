@@ -127,8 +127,6 @@
 	(display-line-numbers-mode)
 	(highlight-indent-guides-mode)
 	(diff-hl-mode)
-	(local-set-key (kbd "C-o") 'smart-for-files)
-  (local-set-key (kbd "C-b") 'smart-for-buffers)
 	(require 'company-capf)
 	(flycheck-mode)
 	(smartparens-mode)
