@@ -14,5 +14,6 @@
 (global-set-key (kbd "C-c m") 'execute-extended-command)
 (global-set-key (kbd "<C-tab>") 'ace-window)
 (global-set-key (kbd "C-c t") 'treemacs)
+(global-set-key (kbd "C-c i") 'indent-buffer)
 
 (my/installed "keys")
