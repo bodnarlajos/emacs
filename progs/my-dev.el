@@ -3,7 +3,7 @@
 (straight-use-package 'lsp-ui)
 (straight-use-package 'diff-hl)
 (straight-use-package 'dap-mode)
-(straight-use-package 'aggressive-indent)
+;; (straight-use-package 'aggressive-indent)
 (straight-use-package 'highlight-indent-guides)
 (straight-use-package 'smartparens)
 (straight-use-package 'treemacs)
@@ -130,7 +130,7 @@
 	(require 'company-capf)
 	(flycheck-mode)
 	(smartparens-mode)
-	(aggressive-indent-mode)
+	;;(aggressive-indent-mode)
 	(company-mode))
 
 (defun flycheck-list-by (what)

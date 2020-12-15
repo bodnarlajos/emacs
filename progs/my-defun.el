@@ -4,18 +4,16 @@
 
 (defun my/load-my (filename)
   "T."
-  (message "%s" filename)
-  (when (not (memq filename my/pkg-loaded))
-    (message "load module %s" filename)
+  (when (not (member filename my/pkg-loaded))
+    (message "load module: %s" filename)
     (let ((my-load-file
-	   (expand-file-name (concat "progs/my-" filename ".el") user-emacs-directory)))
+					 (expand-file-name (concat "progs/my-" filename ".el") user-emacs-directory)))
       (load my-load-file))))
 
 (defun my/installed (module)
   "The modul was installed"
-        (message "%s" module)
-	(when (not (memq module my/pkg-loaded))
-	        (message "add module %s" module)
+	(when (not (member module my/pkg-loaded))
+	  (message "add module %s" module)
 		(add-to-list 'my/pkg-loaded module)))
 
 (defun indent-buffer ()

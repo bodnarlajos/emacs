@@ -7,9 +7,10 @@
 
 	(add-hook 'projectile-mode-hook (lambda ()
 																		(local-set-key (kbd "C-o") 'projectile-find-file)
-																		(local-set-key (kbd "C-b") 'projectile-switch-to-buffer))))
+																		(local-set-key (kbd "C-b") 'counsel-projectile-switch-to-buffer))))
 
 (straight-use-package 'projectile)
+(straight-use-package 'counsel-projectile)
 (my/load-my "ivy")
 
 (add-hook 'prog-mode-hook 'projectile-mode)
