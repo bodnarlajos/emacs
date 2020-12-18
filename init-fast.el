@@ -47,11 +47,14 @@
   (interactive)
 	(message "module install")
   (straight-use-package 'undo-tree)
+  (straight-use-package 'ace-window)
   (straight-use-package 'rg)
   (straight-use-package 'ivy)
   (straight-use-package 'counsel)
   (straight-use-package 'hydra)
   (straight-use-package 'projectile)
+  (straight-use-package 'markdown-mode)
+  (straight-use-package 'org)
 	(message "module install end"))
 
 (global-set-key (kbd "C-M-S-i") 'my/install-modules)
@@ -94,11 +97,17 @@
 (defun my/long-line ()
 	"Open long lines plugins"
 	(interactive)
-	(so-long)
-	(let ((my-load-file
-				 (expand-file-name "progs/longlines.el" user-emacs-directory)))
-		(load my-load-file))
-	(longlines-mode))
+	(let ((ep (line-end-position)))
+		(message "check long-line, first crln is: %s" ep)
+		(when (>= ep 1000)
+			(so-long)
+			(let ((my-load-file
+						 (expand-file-name "progs/longlines.el" user-emacs-directory)))
+				(load my-load-file))
+			(longlines-mode))))
+
+(add-hook 'nxml-mode-hook 'my/long-line)
+(add-hook 'json-mode-hook 'my/long-line)
 
 ;; entry point
 (global-set-key (kbd "C-l") 'my/menu)
@@ -146,8 +155,8 @@
 (run-with-idle-timer 1 nil (lambda ()
 														 (my/packages)
 														 (if (file-exists-p "~/.emacs.d/straight/build-cache.el")
-																	 (my/default-modules)
-																 (my/install-modules))))
+																 (my/default-modules)
+															 (my/install-modules))))
 
 ;; entry point, js file
 (defun init-js ()
