@@ -1,3 +1,17 @@
+(defun ido-recentf-open ()
+  "Use `ido-completing-read' to find a recent file."
+  (interactive)
+  (if (find-file (ido-completing-read "Find recent file: " recentf-list))
+      (message "Opening file...")
+    (message "Aborting")))
+
+(defun my/open-notes ()
+	"Open file from the notes directory"
+	(interactive)
+	(if (find-file (concat "~/Documents/notes/" (ido-completing-read "Find a note: " (directory-files "~/Documents/notes"))))
+      (message "Opening note...")
+    (message "Aborting")))
+
 (defun my/start-later (delay func)
   "T."
   (run-with-idle-timer delay nil func))
@@ -139,4 +153,4 @@ Position the cursor at its beginning, according to the current mode."
 				(my/view-file filepath)
 			(message "It's not a file: %s" filepath))))
 
-(provide 'my-defun)
+(my/installed "defun")

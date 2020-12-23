@@ -10,7 +10,7 @@
 (straight-use-package 'company)
 (straight-use-package 'rg)
 
-(my/load-my "ivy")
+;; (my/load-my "ivy")
 (my/load-my "jump")
 
 (with-eval-after-load 'highlight-indent-guides

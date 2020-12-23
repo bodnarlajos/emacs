@@ -20,6 +20,22 @@
   (set-frame-font "Noto Sans Mono-9" t))
 
 (load-theme 'tsdh-light)
+(setq completion-ignore-case t
+			read-file-name-completion-ignore-case t
+			read-buffer-completion-ignore-case t)
+;; (setq ido-case-fold nil)
+(ido-mode 1)
+(make-local-variable 'ido-decorations)
+(setf (nth 2 ido-decorations) "\n")
+;; show any name that has the chars you typed
+(setq ido-enable-flex-matching t)
+;; use current pane for newly opened file
+(setq ido-default-file-method 'selected-window)
+;; use current pane for newly switched buffer
+(setq ido-default-buffer-method 'selected-window)
+;; stop ido from suggesting when naming new file
+(define-key (cdr ido-minor-mode-map-entry) [remap write-file] nil)
+(setq max-mini-window-height 0.5)
 
 ;; ################################################
 ;; just for defuns and entry-points
@@ -48,11 +64,12 @@
   (interactive)
 	(message "module install")
   (straight-use-package 'undo-tree)
-  (straight-use-package 'ace-window)
+	;;  (straight-use-package 'ace-window)
   (straight-use-package 'rg)
-  (straight-use-package 'ivy)
-  (straight-use-package 'counsel)
+	;;  (straight-use-package 'ivy)
+	;;  (straight-use-package 'counsel)
   (straight-use-package 'hydra)
+  (straight-use-package 'smex)
   (straight-use-package 'projectile)
   (straight-use-package 'markdown-mode)
   (straight-use-package 'org)
@@ -70,7 +87,8 @@
   (global-undo-tree-mode)
   (straight-use-package 'rg)
   (recentf-mode)
-	(straight-use-package 'ace-window)
+	(straight-use-package 'smex)
+	;;(straight-use-package 'ace-window)
   (my/load-my "keys")
   (my/load-my "setq-defaults")
 	(my/load-my "layout")
@@ -124,33 +142,18 @@
 ;; entry point with M-x
 (global-set-key (kbd "M-x") 'my/M-x)
 ;; entry point with find-file
-(global-set-key (kbd "C-o") 'my/find-file)
+(global-set-key (kbd "C-o") 'find-file)
 ;; entry point with buffers
-(global-set-key (kbd "C-b") 'my/buffers)
-
-(defun ivy-load ()
-  "Load ivy packages"
-  (my/entrypoint)
-  (my/load-my "ivy"))
-
-(defun my/buffers ()
-  "Load buffers"
-  (interactive)
-  (ivy-load)
-  (counsel-switch-buffer))
-
-(defun my/find-file ()
-  "Open file"
-  (interactive)
-  (ivy-load)
-  (counsel-find-file))
+(global-set-key (kbd "C-b") 'switch-to-buffer)
 
 (defun my/M-x ()
   "Load commands"
   (interactive)
-  (ivy-load)
-  (counsel-M-x))
-
+	(global-set-key (kbd "M-x") 'smex)
+	(my/packages)
+	(my/default-modules)
+	(smex-initialize)
+	(smex))
 ;; entry point, automatic load the base packages
 ;; load packages if we have a little time ...
 (run-with-idle-timer 1 nil (lambda ()

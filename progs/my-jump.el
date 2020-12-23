@@ -1,7 +1,7 @@
 (straight-use-package 'dumb-jump)
 
 (with-eval-after-load 'dumb-jump
-	(setq dumb-jump-selector 'ivy
+	(setq dumb-jump-selector 'popup
 				dumb-jump-preferred-searcher 'rg)
 	(global-set-key (kbd "<f12>") 'dumb-jump-go)
 	(global-set-key (kbd "<C-f12>") 'dumb-jump-back)

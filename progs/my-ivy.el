@@ -2,7 +2,7 @@
 (straight-use-package 'smex)
 (straight-use-package 'counsel)
 (straight-use-package 'counsel-fd)
-;; (straight-use-package 'ivy-rich)
+(straight-use-package 'ivy-rich)
 
 (setq-default ivy-use-virtual-buffers nil
 							ivy-virtual-abbreviate 'fullpath
@@ -12,7 +12,7 @@
 							ivy-use-selectable-prompt t)
 
 (ivy-mode)
-;; (ivy-rich-mode 1)
+(ivy-rich-mode 1)
 
 ;; IDO-style directory navigation
 (define-key ivy-minibuffer-map (kbd "RET") #'ivy-alt-done)

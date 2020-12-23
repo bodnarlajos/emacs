@@ -12,8 +12,8 @@
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-M-o") 'find-file-literally-at-point)
 (global-set-key (kbd "C-c m") 'execute-extended-command)
-(global-set-key (kbd "<C-tab>") 'ace-window)
 (global-set-key (kbd "C-c t") 'treemacs)
 (global-set-key (kbd "C-c i") 'indent-buffer)
+(global-set-key (kbd "C-o") 'find-file)
 
 (my/installed "keys")

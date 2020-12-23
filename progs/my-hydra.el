@@ -49,19 +49,16 @@
     
     _<tab>_: back to the previous
     "
-    ("b" (progn
-					 (my/load-my "ivy")
-					 (counsel-bookmark)) :exit t)
+    ("b" bookmark-jump :exit t)
     ("f s" yafolding-show-element :exit t)
     ("f h" yafolding-hide-element :exit t)
     ("c" comment-or-uncomment-region :exit t)
-    ("n" open-note :exit t)
+    ("n" (progn
+					 (my/load-my "defun")
+					 (my/open-notes)) :exit t)
     ("i" indent-buffer :exit t)
     ("u" undo-tree-visualize :exit t)
-    ("r" (progn
-					 (my/load-my "ivy")
-					 (my/load-my "projectile")
-					 (counsel-recentf)) :exit t)
+    ("r" ido-recentf-open :exit t)
 		("p" (progn
 					 (my/load-my "projectile")
 					 (projectile-mode)
@@ -86,12 +83,8 @@
     ("b" (progn
 					 (my/load-my "jump")
 					 (dumb-jump-back)) :exit nil)
-    ("j" (progn
-					 (my/load-my "ivy")
-					 (counsel-mark-ring)) :exit t)
-    ("f" (progn
-					 (my/load-my "ivy")
-					 (swiper)) :exit t)
+    ("j" set-mark-command :exit t)
+    ("f" isearch-forward :exit t)
 
     ("<tab>" my/hydra-back :exit t)
     ("q" nil "quit" :exit t))
@@ -109,9 +102,7 @@
     ("d" duplicate-line :exit t)
     ("v" cua-set-mark :exit t)
     ("o" find-file :exit t)
-    ("j" (progn
-					 (my/load-my "ivy")
-					 (counsel-mark-ring)) :exit t)
+    ("j" set-mark-command :exit t)
     ("u" undo-tree-undo :exit nil)
     ("r" undo-tree-redo :exit nil)
     ("l" recenter :exit t)
