@@ -14,4 +14,6 @@
 
 (add-hook 'prog-mode-hook 'projectile-mode)
 
+(message "my-projectile is ...")
 (my/installed "projectile")
+(provide 'my-projectile)

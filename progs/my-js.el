@@ -22,6 +22,7 @@
 
 ;; ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
+(setq-default typescript-indent-level 2)
 
 ;; ;; formats the buffer before saving
 ;; (add-hook 'typescript-mode-hook 

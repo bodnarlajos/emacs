@@ -53,6 +53,26 @@
 																	 :logLevel "WARNING"
 																	 :forceInspect nil))
 
+(dap-register-debug-template "haskell-debug-adapter-yesod"
+														 (list :type "hda"
+																	 :request "launch"
+																	 :name "haskell-debug-adapter"
+																	 :internalConsoleOptions "openOnSessionStart"
+																	 ;; :workspace (lsp-find-session-folder (lsp-session) (buffer-file-name))
+																	 :workspace "/home/lbodnar/Projects/yesod-test1"
+																	 :startup "/home/lbodnar/Projects/yesod-test1/app/main.hs"
+																	 :startupFunc ""
+																	 :startupArgs ""
+																	 :stopOnEntry t
+																	 :mainArgs ""
+																	 :ghciPrompt "H>>= "
+																	 :ghciInitialPrompt "Prelude>"
+																	 :ghciCmd "stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show"
+																	 :ghciEnv (list :dummy "")
+																	 :logFile "/home/lbodnar/Projects/yesod-test1/haskell-debug.log"
+																	 :logLevel "WARNING"
+																	 :forceInspect nil))
+
 (dap-register-debug-template "haskell-debug-adapter-easyregistration"
 														 (list :type "hda"
 																	 :request "launch"

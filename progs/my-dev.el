@@ -33,6 +33,7 @@
   (setq lsp-ui-doc-use-childframe t)
   (setq lsp-ui-doc-header nil)
   (setq lsp-ui-doc-include-signature nil)
+	(setq lsp-headerline-breadcrumb-enable nil)
   (setq lsp-ui-imenu-enable t)
   (setq lsp-ui-sideline-enable t)
   (setq lsp-ui-sideline-show-diagnostics t)
