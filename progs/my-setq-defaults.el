@@ -21,7 +21,6 @@
  bidi-display-reordering nil
  gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"
  browse-url-browser-function 'browse-url-generic
- browse-url-generic-program "firefox"
  set-mark-command-repeat-pop t
  completion-styles '(partial-completion substring intials flex)
  resize-mini-windows t
@@ -29,6 +28,10 @@
  isearch-allow-scroll t
  isearch-allow-prefix t
  mark-ring-max 32)
+
+(if is-lbodnar
+		(setq browse-url-generic-program "firefox")
+	(setq  browse-url-generic-program "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"))
 
 ;; Better scrolling
 (setq redisplay-dont-pause t

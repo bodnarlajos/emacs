@@ -15,5 +15,6 @@
 (global-set-key (kbd "C-c t") 'treemacs)
 (global-set-key (kbd "C-c i") 'indent-buffer)
 (global-set-key (kbd "C-o") 'find-file)
+(global-set-key (kbd "<M-return>") 'find-file-at-point)
 
 (my/installed "keys")
