@@ -1,3 +1,5 @@
+(defconst is-windows (string-equal system-type "windows-nt"))
+(message "is-windows: %s" is-windows)
 (custom-set-variables
  '(package-selected-packages
 	 (quote
@@ -14,7 +16,9 @@
 (load-theme 'tsdh-light)
 
 (setq inhibit-startup-message t)
-(set-frame-font "Fira Code-12" nil t)
+(if is-windows
+    (set-frame-font "Fira Code-10" nil t)
+  (set-frame-font "Fira Code-12" nil t))
 (require 'ido-vertical-mode)
 (ido-vertical-mode)
 (global-undo-tree-mode)
