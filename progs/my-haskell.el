@@ -17,10 +17,10 @@
     (setq-local haskell-compile-cabal-build-command "stack build --fast --ghc-options=\"-j +RTS -A32M -RTS\"")
     (haskell-compile "stack build --fast --ghc-options=\"-j +RTS -A32M -RTS\"")))
 
-(straight-use-package 'haskell-mode)
-(straight-use-package 'shakespeare-mode)
-(straight-use-package 'lsp-haskell)
-(my/load-my "dev")
+(my/install 'haskell-mode)
+(my/install 'shakespeare-mode)
+(my/install 'lsp-haskell)
+(require "my-dev")
 
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)

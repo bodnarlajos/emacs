@@ -1,3 +1,9 @@
+(defun my/install (pkg)
+  "install a package if dont'"
+  (interactive)
+  (when (not (package-installed-p pkg))
+    (package-install pkg)))
+
 (defun ido-recentf-open ()
   "Use `ido-completing-read' to find a recent file."
   (interactive)

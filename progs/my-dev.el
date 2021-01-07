@@ -1,16 +1,14 @@
-(straight-use-package 'flycheck)
-(straight-use-package 'lsp-mode)
-(straight-use-package 'lsp-ui)
-(straight-use-package 'diff-hl)
-(straight-use-package 'dap-mode)
-;; (straight-use-package 'aggressive-indent)
-(straight-use-package 'highlight-indent-guides)
-(straight-use-package 'smartparens)
-(straight-use-package 'treemacs)
-(straight-use-package 'company)
-(straight-use-package 'rg)
+(my/install 'flycheck)
+(my/install 'lsp-mode)
+(my/install 'lsp-ui)
+(my/install 'diff-hl)
+(my/install 'dap-mode)
+(my/install 'highlight-indent-guides)
+(my/install 'smartparens)
+(my/install 'treemacs)
+(my/install 'company)
+(my/install 'rg)
 
-;; (my/load-my "ivy")
 (my/load-my "jump")
 
 (with-eval-after-load 'highlight-indent-guides
@@ -162,4 +160,4 @@
 (setq compilation-skip-threshold 2)
 (add-hook 'prog-mode-hook 'my/local-prog-mode)
 
-(my/installed "dev")
+(provide 'my-dev)

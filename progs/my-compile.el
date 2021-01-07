@@ -2,7 +2,9 @@
 
 (setq-default compilation-scroll-output t)
 
-(straight-use-package 'alert)
+(my/install 'alert)
+(my/install 'ansi-color)
+(require 'alert)
 
 ;; Customize `alert-default-style' to get messages after compilation
 
@@ -54,7 +56,7 @@
 
 
 (with-eval-after-load 'compile
-  (straight-use-package 'ansi-color)
+  (require 'ansi-color)
   (defun sanityinc/colourise-compilation-buffer ()
     (when (eq major-mode 'compilation-mode)
       (ansi-color-apply-on-region compilation-filter-start (point-max))))
