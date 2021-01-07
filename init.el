@@ -16,9 +16,10 @@
 (load-theme 'tsdh-light)
 
 (setq inhibit-startup-message t)
-(if is-windows
-    (set-frame-font "Fira Code-10" nil t)
-  (set-frame-font "Fira Code-12" nil t))
+(add-hook 'after-init-hook (lambda ()
+			     (if is-windows
+				 (set-frame-font "Fira Code-10" nil t)
+			       (set-frame-font "Fira Code-12" nil t))))
 (require 'ido-vertical-mode)
 (ido-vertical-mode)
 (global-undo-tree-mode)
