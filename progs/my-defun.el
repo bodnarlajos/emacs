@@ -153,4 +153,4 @@ Position the cursor at its beginning, according to the current mode."
 				(my/view-file filepath)
 			(message "It's not a file: %s" filepath))))
 
-(my/installed "defun")
+(provide 'my-defun)

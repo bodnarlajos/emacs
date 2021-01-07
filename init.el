@@ -23,3 +23,5 @@
 (ido-vertical-mode)
 (global-undo-tree-mode)
 (global-set-key (kbd "M-x") 'smex)
+
+(require 'my-defun)
