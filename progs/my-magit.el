@@ -22,7 +22,6 @@
 (defun my/magit-status ()
   "Open a magit directory."
   (interactive)
-  (my/load-my "projectile")
   (projectile-mode 1)
   (if (projectile-project-p)
       (let ((project-root (projectile-project-root)))
@@ -33,11 +32,9 @@
       (call-interactively #'magit-status)
       (delete-other-windows))))
 
-(straight-use-package 'magit)
 (setq magit-auto-revert-mode nil)
 (setq magit-log-margin '(t age-abbreviated magit-log-margin-width :author 11))
 (setq magit--default-directory my/project-dir)  
 (setq magit-section-initial-visibility-alist (quote ((untracked . hide) (stashes . hide))))
 
-(my/installed "magit")
 (provide 'my-magit)

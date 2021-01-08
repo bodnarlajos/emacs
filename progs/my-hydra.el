@@ -1,4 +1,4 @@
-(straight-use-package 'hydra)
+(my/install 'hydra)
 
 (global-unset-key (kbd "C-l"))
 (global-set-key (kbd "C-l") 'my/command-menu/body)
@@ -53,18 +53,14 @@
     ("f s" yafolding-show-element :exit t)
     ("f h" yafolding-hide-element :exit t)
     ("c" comment-or-uncomment-region :exit t)
-    ("n" (progn
-					 (my/load-my "defun")
-					 (my/open-notes)) :exit t)
+    ("n" my/open-notes :exit t)
     ("i" indent-buffer :exit t)
     ("u" undo-tree-visualize :exit t)
     ("r" ido-recentf-open :exit t)
 		("p" (progn
-					 (my/load-my "projectile")
 					 (projectile-mode)
 					 (projectile-switch-project)) :exit t)
 		("m" (progn
-					 (my/load-my "magit")
 					 (my/magit-status)) :exit t)
 		("<tab>" my/hydra-back :exit t)
 		("q" nil "quit" :exit t))
@@ -77,12 +73,8 @@
     _b_    : back    _f_: swiper
     _<tab>_: back to the previous
     "
-    ("g" (progn
-					 (my/load-my "jump")
-					 (dumb-jump-go)) :exit t)
-    ("b" (progn
-					 (my/load-my "jump")
-					 (dumb-jump-back)) :exit nil)
+    ("g" dumb-jump-go :exit t)
+    ("b" dumb-jump-back :exit nil)
     ("j" set-mark-command :exit t)
     ("f" isearch-forward :exit t)
 
@@ -121,4 +113,4 @@
     ("q" nil "quit" :color blue :exit t)
     ("<f6>" nil "quit" :color blue :exit t)))
 
-(my/installed "hydra")
+(provide 'my-hydra)

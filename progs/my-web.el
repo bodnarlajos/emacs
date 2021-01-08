@@ -1,11 +1,9 @@
-(straight-use-package 'web-mode)
-(straight-use-package 'less-css-mode)
-
-(my/load-my "dev")
+(my/install 'web-mode)
+(my/install 'less-css-mode)
 
 ;; (add-hook 'web-mode-hook
 ;;           (lambda ()
 ;;             (when (string-equal "jsx" (file-name-extension buffer-file-name))
 ;;               (setup-tide-mode))))
 
-(my/installed "web")
+(provide 'my-web)

@@ -17,4 +17,4 @@
 (global-set-key (kbd "C-o") 'find-file)
 (global-set-key (kbd "<M-return>") 'find-file-at-point)
 
-(my/installed "keys")
+(provide 'my-keys)

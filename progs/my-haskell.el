@@ -1,7 +1,6 @@
 (with-eval-after-load 'haskell-mode
 	(message "haskell-mode after eval")
   ;; Hooks so haskell and literate haskell major modes trigger LSP setup
-  (my/load-my "haskell-debug")
   (add-hook 'haskell-mode-hook (lambda ()
 																 (lsp)
 																 (local-set-key (kbd "C-c C-c") 'my/haskell-compile)

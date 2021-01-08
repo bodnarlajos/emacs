@@ -10,11 +10,9 @@
   ;; `M-x package-install [ret] company`
   (company-mode +1))
 
-(straight-use-package 'tide)
-(straight-use-package 'js2-mode)
+(my/install 'tide)
+(my/install 'js2-mode)
 ;;(straight-use-package 'ng2-mode)
-
-(my/load-my "dev")
 
 (add-hook 'js2-mode-hook #'setup-tide-mode)
 ;; configure javascript-tide checker to run after your default javascript checker
@@ -35,4 +33,4 @@
 ;; (add-hook 'typescript-mode-hook 'ng2-mode)
 ;; (add-hook 'typescript-mode-hook #'lsp)
 
-(my/installed "js")
+(provide 'my-js)

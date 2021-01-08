@@ -55,4 +55,4 @@
 		(side . bottom) (slot . 1) (preserve-size . (nil . t))
 		,my/window-no-other-no-delete)))
 
-(my/installed "layout")
+(provide 'my-layout)

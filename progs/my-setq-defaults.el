@@ -29,7 +29,7 @@
  isearch-allow-prefix t
  mark-ring-max 32)
 
-(if is-lbodnar
+(if (not is-windows)
 		(setq browse-url-generic-program "firefox")
 	(setq  browse-url-generic-program "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"))
 

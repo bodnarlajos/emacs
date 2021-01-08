@@ -3,7 +3,6 @@
 (setq-default compilation-scroll-output t)
 
 (my/install 'alert)
-(my/install 'ansi-color)
 (require 'alert)
 
 ;; Customize `alert-default-style' to get messages after compilation
@@ -61,7 +60,6 @@
     (when (eq major-mode 'compilation-mode)
       (ansi-color-apply-on-region compilation-filter-start (point-max))))
   (add-hook 'compilation-filter-hook 'sanityinc/colourise-compilation-buffer))
-
 
 (provide 'my-compile)
 ;;; init-compile.el ends here

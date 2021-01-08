@@ -92,3 +92,5 @@
 																	 :logFile "/home/lbodnar/Projects/easyregistration/hdx4emacs.log"
 																	 :logLevel "WARNING"
 																	 :forceInspect nil))
+
+(provide 'my-haskell-debug)

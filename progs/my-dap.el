@@ -1,5 +1,5 @@
-(straight-use-package 'dap-mode)
-(straight-use-package 'dap-utils)
+(my/install 'dap-mode)
+(my/install 'dap-utils)
 
 (dap-mode 1)
 (dap-ui-mode 1)

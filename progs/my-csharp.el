@@ -1,6 +1,3 @@
-(my/load-my "projectile")
-(my/load-my "dev")
+(my/install 'csharp-mode)
 
-(straight-use-package 'csharp-mode)
-
-(my/installed "csharp")
+(provide 'my-csharp)

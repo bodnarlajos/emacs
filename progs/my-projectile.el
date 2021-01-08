@@ -1,7 +1,3 @@
-(straight-use-package 'projectile)
-;; (straight-use-package 'counsel-projectile)
-;; (my/load-my "ivy")
-
 (with-eval-after-load 'projectile
 	(setq projectile-project-search-path my/project-dir
 				projectile-mode-line-prefix ""
@@ -14,6 +10,4 @@
 
 (add-hook 'prog-mode-hook 'projectile-mode)
 
-(message "my-projectile is ...")
-(my/installed "projectile")
 (provide 'my-projectile)

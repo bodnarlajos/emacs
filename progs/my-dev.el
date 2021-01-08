@@ -9,8 +9,6 @@
 (my/install 'company)
 (my/install 'rg)
 
-(my/load-my "jump")
-
 (with-eval-after-load 'highlight-indent-guides
 	(custom-set-variables
 	 '(highlight-indent-guides-method 'bitmap)))
