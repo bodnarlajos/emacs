@@ -1,4 +1,4 @@
-(my/install 'hydra)
+(require 'hydra)
 
 (global-unset-key (kbd "C-l"))
 (global-set-key (kbd "C-l") 'my/command-menu/body)

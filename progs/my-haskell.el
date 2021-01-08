@@ -16,11 +16,6 @@
     (setq-local haskell-compile-cabal-build-command "stack build --fast --ghc-options=\"-j +RTS -A32M -RTS\"")
     (haskell-compile "stack build --fast --ghc-options=\"-j +RTS -A32M -RTS\"")))
 
-(my/install 'haskell-mode)
-(my/install 'shakespeare-mode)
-(my/install 'lsp-haskell)
-(require "my-dev")
-
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)
 (setq compilation-scroll-output t)
@@ -31,4 +26,4 @@
 (setq lsp-haskell-process-args-hie '())
 (setq lsp-file-watch-ignored '("static" "\.git" "\.stack-work" "\.vscode" "bin"))
 
-(my/installed "haskell")
+(provide 'my-haskell)

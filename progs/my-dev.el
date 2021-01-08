@@ -1,14 +1,3 @@
-(my/install 'flycheck)
-(my/install 'lsp-mode)
-(my/install 'lsp-ui)
-(my/install 'diff-hl)
-(my/install 'dap-mode)
-(my/install 'highlight-indent-guides)
-(my/install 'smartparens)
-(my/install 'treemacs)
-(my/install 'company)
-(my/install 'rg)
-
 (with-eval-after-load 'highlight-indent-guides
 	(custom-set-variables
 	 '(highlight-indent-guides-method 'bitmap)))

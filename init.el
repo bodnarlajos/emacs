@@ -7,7 +7,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(projectile dap-mode diff-hl lsp-ui lsp-mode alert undo-tree smex ido-vertical-mode vlf js2-mode magit tide dumb-jump company rg)))
+   '(web-mode haskell-mode sharespeare-mode lsp-haskell flycheck lsp-mode lsp-ui diff-hl dap-made hightlight-indent-guides smartparens treemacs projectile dap-mode diff-hl lsp-ui lsp-mode alert undo-tree smex ido-vertical-mode vlf js2-mode magit tide dumb-jump company rg)))
 (add-to-list 'load-path "/home/lbodnar/.emacs.d/progs")
 
 (require 'package)
@@ -22,10 +22,10 @@
 (load-theme 'tsdh-light)
 
 (setq inhibit-startup-message t)
-(if is-windows
-    (set-frame-font "Fira Code-10" nil t)
-  (set-frame-font "Fira Code-12" nil t))
 
+(if is-windows
+      (setq default-frame-alist '((font . "Fira Code-10")))
+    (setq default-frame-alist '((font . "Fira Code-12"))))
 (require 'ido-vertical-mode)
 (require 'my-defun)
 (require 'my-setq-defaults)

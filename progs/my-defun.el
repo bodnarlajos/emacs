@@ -22,20 +22,6 @@
   "T."
   (run-with-idle-timer delay nil func))
 
-(defun my/load-my (filename)
-  "T."
-  (when (not (member filename my/pkg-loaded))
-    (message "load module: %s" filename)
-    (let ((my-load-file
-					 (expand-file-name (concat "progs/my-" filename ".el") user-emacs-directory)))
-      (load my-load-file))))
-
-(defun my/installed (module)
-  "The modul was installed"
-	(when (not (member module my/pkg-loaded))
-	  (message "add module %s" module)
-		(add-to-list 'my/pkg-loaded module)))
-
 (defun indent-buffer ()
   (interactive)
   (save-excursion

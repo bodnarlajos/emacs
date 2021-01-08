@@ -6,4 +6,4 @@
 
 (straight-use-package 'org)
 
-(my/installed "org")
+(provide 'my-org)
