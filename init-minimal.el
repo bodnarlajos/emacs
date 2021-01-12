@@ -2,6 +2,7 @@
 ;; (setq debug-on-error t)
 (setq frame-title-format '("%b"))
 (setq file-name-handler-alist nil)
+(setq inhibit-startup-screen t)
 
 (defvar my/pkg-loaded '("base"))
 (defvar bootstrap-version nil)
