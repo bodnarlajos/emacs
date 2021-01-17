@@ -1,0 +1,13 @@
+auto-save-list/*
+elpa/*
+straight/*
+*~
+recentf
+smex*
+treemacs*
+history.el
+ido*
+projectile*
+custom.el
+\#*
+.lsp*
